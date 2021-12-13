@@ -9,16 +9,14 @@ import {
 } from "../../components/PostLayout/styles";
 import Topbar from "../../components/Topbar";
 
-// const Posts = ({ data }: {data:any}) => {
-const PostDetails = (props: any) => {
-  let { userid, postid } = useParams<string>();
+const PostDetails = () => {
+  let { postid } = useParams<string>();
   const [showComments, setShowComments] = useState(false);
   const { loading, error, data } = useQuery(GET_POST_BY_ID, {
     variables: {
       postid,
     },
   });
-  console.log("post deatils", loading, error, data);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
@@ -57,10 +55,7 @@ const PostDetails = (props: any) => {
 };
 
 export default PostDetails;
-// query User($ID: String!) {
-//   user(id: $userid) {
-// query {
-//   user(id: $userid) {
+
 const GET_POST_BY_ID = gql`
   query Post($postid: ID!) {
     post(id: $postid) {
@@ -81,19 +76,3 @@ const GET_POST_BY_ID = gql`
     }
   }
 `;
-
-//   const GET_ALL_POSTS_OF_USER = gql`
-//   query (
-//     $options: PageQueryOptions
-//   ) {
-//     posts(options: $options) {
-//       data {
-//         id
-//         title
-//       }
-//       meta {
-//         totalCount
-//       }
-//     }
-//   }
-// `;

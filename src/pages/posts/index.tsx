@@ -4,9 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { LinkBar } from "../../components/LinkBar";
 import Modal from "../../components/Modal";
 import Topbar from "../../components/Topbar";
-import { DeleteIcon } from "../../icons";
 
-// const Posts = ({ data }: {data:any}) => {
 const Posts = () => {
   let { userid } = useParams<string>();
   const [isModalOpen, setModalOpen] = useState(false);

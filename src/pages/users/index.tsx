@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import { useQuery, gql } from "@apollo/client";
 import { Card, CardList, CardTitle } from "../../components/Card";
 import { Button } from "../../components/Button";
@@ -14,19 +14,9 @@ type TUsers = {
 };
 
 function Users() {
-  // const defaultData = [{name: 'sadiq', email: 'asd@gamilc.om', phone: '09999123123', description: 'sample descriptino' },
-  // {name: 'New one', email: 'newone@gamilc.om', phone: '088888123123', description: 'new one - sample descriptino' }]
-  // const [data] = useState(defaultData)
+
   let navigate = useNavigate();
   const { loading, error, data } = useQuery(GET_ALL_USERS);
-  console.log("users", loading, error, data);
-
-  const clickHandler = (userid: string) => {
-    console.log('clicked', userid)
-    // history.push('/your-path')
-
-    navigate(`/${userid}/posts`)
-  }
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
