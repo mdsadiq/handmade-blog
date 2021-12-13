@@ -2,16 +2,13 @@
 import './App.css';
 import { Routes, Route } from "react-router-dom";
 import Users from './pages/users';
-import Posts from './pages/posts';
+import PostLayout from './components/PostLayout';
 
 function App() {
   return (
     <div className="App">
-
-
       <Routes>
-        <Route path="/:userid/posts" element={<Posts />} />
-        <Route path="/:userid/post/:postid" element={<Posts />} />
+        <Route path="/:userid/*" element={<PostLayout />} />
         <Route path="/" element={<Users />} />
       </Routes>
     </div>

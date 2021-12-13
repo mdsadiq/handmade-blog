@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useQuery, gql } from "@apollo/client";
 import { Card, CardList, CardTitle } from "../../components/Card";
 import { Button } from "../../components/Button";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 type TUsers = {
   id: string;
@@ -46,7 +46,12 @@ function Users() {
               <div style={{ marginTop: 8 }}>
                 what to display here
               </div>
-              <Button onClick={() => clickHandler(user.id)}> Details </Button>
+              <Link to={`/${user.id}/posts`} style={{ textDecoration: 'none'}}>
+               <Button> Details </Button>
+              </Link>
+
+              {/* <Button onClick={() => clickHandler(user.id)}> Details </Button> */}
+
             </Card>
           );
         })}
